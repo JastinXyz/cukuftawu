@@ -4,7 +4,7 @@ import { Sticker, StickerTypes } from 'wa-sticker-formatter';
 
 module.exports = {
     name: "sticker",
-    aliases: ['s'],
+    aliases: ['s', 'stiker'],
     code: async(ctx: Ctx) => {
         try {
             const messageType = ctx.getMessageType();
@@ -31,7 +31,7 @@ module.exports = {
             }
 
             const sticker = new Sticker(buffer as any, {
-                pack: 'npmjs.com/mengkodingan',
+                pack: 'npmjs.com/@mengkodingan/ckptw',
                 author: 'bot gawul',
                 type: StickerTypes.FULL,
                 categories: [],

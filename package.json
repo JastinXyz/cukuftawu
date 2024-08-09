@@ -16,6 +16,8 @@
     "typescript": "^5.5.4"
   },
   "dependencies": {
-    "@mengkodingan/ckptw": "^4.2.1"
+    "@mengkodingan/ckptw": "^4.2.1",
+    "@whiskeysockets/baileys": "^6.7.5",
+    "wa-sticker-formatter": "^4.4.4"
   }
 }

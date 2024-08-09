@@ -1,4 +1,5 @@
-import { Client, Events } from "@mengkodingan/ckptw";
+import { Client, Events, CommandHandler } from "@mengkodingan/ckptw";
+import path from "path";
 
 const bot = new Client({
     prefix: /^[°•π÷×¶∆£¢€¥®™✓=|~zZ+×_*!#%^&./\\©^]/,
@@ -11,5 +12,8 @@ bot.ev.once(Events.ClientReady, (m) => {
 });
 
 bot.command('ping', async(ctx) => ctx.reply({ text: 'pong!' }));
+
+const cmd = new CommandHandler(bot, path.resolve('dist') + '/commands');
+cmd.load();
 
 bot.launch();

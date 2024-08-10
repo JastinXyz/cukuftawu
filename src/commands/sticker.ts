@@ -10,9 +10,7 @@ module.exports = {
             const messageType = ctx.getMessageType();
             const quotedMessage = ctx._msg.message?.extendedTextMessage?.contextInfo?.quotedMessage as any;
 
-            if (!quotedMessage && messageType !== MessageType.imageMessage && messageType !== MessageType.videoMessage) {
-                ctx.react(ctx.id as string, "❌");
-            }
+            if (!quotedMessage && messageType !== MessageType.imageMessage && messageType !== MessageType.videoMessage) return ctx.react(ctx.id as string, "❌");
 
             let buffer;
 

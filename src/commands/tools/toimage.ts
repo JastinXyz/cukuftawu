@@ -1,4 +1,4 @@
-import { Ctx, MessageType } from "@mengkodingan/ckptw";
+import { Cooldown, Ctx, MessageType } from "@mengkodingan/ckptw";
 import { downloadContentFromMessage } from "@whiskeysockets/baileys";
 
 module.exports = {
@@ -8,6 +8,9 @@ module.exports = {
     cooldown: 1,
     category: "tools",
     code: async(ctx: Ctx) => {
+        const cd = new Cooldown(ctx, 1000);
+        if(cd.onCooldown) return ctx.react(ctx.id!, '⏰');
+
         try {
             const quotedMessage = ctx._msg.message?.extendedTextMessage?.contextInfo?.quotedMessage as any;
             if(!quotedMessage) return ctx.react(ctx.id!, '❌');

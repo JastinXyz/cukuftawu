@@ -1,4 +1,4 @@
-import { bold, Ctx, inlineCode, italic } from "@mengkodingan/ckptw";
+import { bold, Cooldown, Ctx, inlineCode, italic } from "@mengkodingan/ckptw";
 import ms from "ms";
 
 interface CommandDetail {
@@ -18,6 +18,9 @@ module.exports = {
     category: "general",
     args: ["<command?>"],
     code: async(ctx: Ctx) => {
+        const cd = new Cooldown(ctx, 1000);
+        if(cd.onCooldown) return ctx.react(ctx.id!, '⏰');
+
         try {
             let allCommandsValue = Array.from(ctx._self.cmd?.values() as unknown as ArrayLike<unknown>) as Array<CommandDetail>;
             if(ctx.args.length) {

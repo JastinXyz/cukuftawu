@@ -1,4 +1,4 @@
-import { Ctx, MessageType } from "@mengkodingan/ckptw";
+import { Cooldown, Ctx, MessageType } from "@mengkodingan/ckptw";
 import { downloadContentFromMessage } from "@whiskeysockets/baileys";
 import { Sticker, StickerTypes } from 'wa-sticker-formatter';
 
@@ -9,6 +9,9 @@ module.exports = {
     cooldown: 1,
     category: "tools",
     code: async(ctx: Ctx) => {
+        const cd = new Cooldown(ctx, 1000);
+        if(cd.onCooldown) return ctx.react(ctx.id!, '⏰');
+
         try {
             const messageType = ctx.getMessageType();
             const quotedMessage = ctx._msg.message?.extendedTextMessage?.contextInfo?.quotedMessage as any;

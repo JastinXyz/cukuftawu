@@ -4,6 +4,9 @@ import { downloadContentFromMessage } from "@whiskeysockets/baileys";
 module.exports = {
     name: "toimage",
     aliases: ['toimg'],
+    description: "Convert sticker menjadi file.",
+    cooldown: 1,
+    category: "tools",
     code: async(ctx: Ctx) => {
         try {
             const quotedMessage = ctx._msg.message?.extendedTextMessage?.contextInfo?.quotedMessage as any;

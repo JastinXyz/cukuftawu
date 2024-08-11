@@ -5,6 +5,9 @@ import { Sticker, StickerTypes } from 'wa-sticker-formatter';
 module.exports = {
     name: "sticker",
     aliases: ['s', 'stiker'],
+    description: "Convert gambar atau gif/mp4 ke sticker.",
+    cooldown: 1,
+    category: "tools",
     code: async(ctx: Ctx) => {
         try {
             const messageType = ctx.getMessageType();

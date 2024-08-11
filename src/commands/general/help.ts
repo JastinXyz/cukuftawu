@@ -62,6 +62,7 @@ ${x.description || "none"}
                 let emoji = {
                     "General": "🔎",
                     "Tools": "✂",
+                    "Owner": "🤖",
                     "Tidak Ada Category": "❓"
                 }
 

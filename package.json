@@ -19,6 +19,8 @@
   "dependencies": {
     "@mengkodingan/ckptw": "^4.2.1",
     "@whiskeysockets/baileys": "^6.7.5",
+    "axios": "^1.7.3",
+    "dotenv": "^16.4.5",
     "ms": "^2.1.3",
     "wa-sticker-formatter": "^4.4.4"
   }

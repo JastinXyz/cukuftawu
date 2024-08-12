@@ -1,5 +1,4 @@
 import { Cooldown, Ctx, MessageType } from "@mengkodingan/ckptw";
-import { downloadContentFromMessage } from "@whiskeysockets/baileys";
 import { Sticker, StickerTypes } from 'wa-sticker-formatter';
 
 module.exports = {
@@ -14,15 +13,15 @@ module.exports = {
 
         try {
             const messageType = ctx.getMessageType();
-            const quotedMessage = ctx._msg.message?.extendedTextMessage?.contextInfo?.quotedMessage as any;
+            const quotedMessage = ctx.quoted;
 
             if (!quotedMessage && messageType !== MessageType.imageMessage && messageType !== MessageType.videoMessage) return ctx.react(ctx.id as string, "❌");
 
             let buffer;
 
             if(quotedMessage) {
-                let type = ctx._self.getContentType(quotedMessage);
-                let stream = await downloadContentFromMessage(quotedMessage[type], type.slice(0, -7));
+                let type = ctx.getContentType(quotedMessage) as keyof typeof quotedMessage;
+                let stream = await ctx.downloadContentFromMessage(quotedMessage[type] as any, type.slice(0, -7) as any);
                 let buff = Buffer.from([]);
 
                 for await (const chunk of stream) {

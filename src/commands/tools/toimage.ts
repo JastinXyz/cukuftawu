@@ -1,5 +1,4 @@
 import { Cooldown, Ctx, MessageType } from "@mengkodingan/ckptw";
-import { downloadContentFromMessage } from "@whiskeysockets/baileys";
 
 module.exports = {
     name: "toimage",
@@ -18,7 +17,7 @@ module.exports = {
             let type = ctx._self.getContentType(quotedMessage);
             if(type !== MessageType.stickerMessage) return ctx.react(ctx.id!, '❌');
 
-            let stream = await downloadContentFromMessage(quotedMessage[type], type.slice(0, -7));
+            let stream = await ctx.downloadContentFromMessage(quotedMessage[type], type.slice(0, -7) as any);
             let buff = Buffer.from([]);
 
             for await (const chunk of stream) {

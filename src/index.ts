@@ -4,7 +4,8 @@ import path from "path";
 const bot = new Client({
     prefix: /^[°•π÷×¶∆£¢€¥®™✓=|~zZ+×_*!#%^&./\\©^]/,
     printQRInTerminal: true,
-    readIncommingMsg: true
+    readIncommingMsg: true,
+    WAVersion: [2, 3000, 1015901307]
 });
 
 bot.ev.once(Events.ClientReady, (m) => {

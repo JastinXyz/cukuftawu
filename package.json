@@ -17,7 +17,7 @@
     "typescript": "^5.5.4"
   },
   "dependencies": {
-    "@mengkodingan/ckptw": "^4.3.0",
+    "@mengkodingan/ckptw": "^4.3.6",
     "@whiskeysockets/baileys": "^6.7.5",
     "axios": "^1.7.3",
     "dotenv": "^16.4.5",

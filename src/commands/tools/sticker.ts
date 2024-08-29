@@ -12,26 +12,8 @@ module.exports = {
         if(cd.onCooldown) return ctx.react(ctx.id!, '⏰');
 
         try {
-            const messageType = ctx.getMessageType();
-            const quotedMessage = ctx.quoted;
-
-            if (!quotedMessage && messageType !== MessageType.imageMessage && messageType !== MessageType.videoMessage) return ctx.react(ctx.id as string, "❌");
-
-            let buffer;
-
-            if(quotedMessage) {
-                let type = ctx.getContentType(quotedMessage) as keyof typeof quotedMessage;
-                let stream = await ctx.downloadContentFromMessage(quotedMessage[type] as any, type.slice(0, -7) as any);
-                let buff = Buffer.from([]);
-
-                for await (const chunk of stream) {
-                    buff = Buffer.concat([buff, chunk]);
-                }
-
-                buffer = buff;
-            } else {
-                buffer = await ctx.getMediaMessage(ctx._msg, "buffer");
-            }
+            let buffer = await ctx.msg.media.toBuffer() || await ctx.quoted.media.toBuffer();
+            if(!buffer) return ctx.react(ctx.id as string, "❌");
 
             const sticker = new Sticker(buffer as any, {
                 pack: 'npmjs.com/@mengkodingan/ckptw',

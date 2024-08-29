@@ -11,18 +11,8 @@ module.exports = {
         if(cd.onCooldown) return ctx.react(ctx.id!, '⏰');
 
         try {
-            const quotedMessage = ctx._msg.message?.extendedTextMessage?.contextInfo?.quotedMessage as any;
-            if(!quotedMessage) return ctx.react(ctx.id!, '❌');
-
-            let type = ctx._self.getContentType(quotedMessage);
-            if(type !== MessageType.stickerMessage) return ctx.react(ctx.id!, '❌');
-
-            let stream = await ctx.downloadContentFromMessage(quotedMessage[type], type.slice(0, -7) as any);
-            let buff = Buffer.from([]);
-
-            for await (const chunk of stream) {
-                buff = Buffer.concat([buff, chunk]);
-            }
+            const buff = await ctx.quoted.media.toBuffer();
+            if(!buff) return ctx.react(ctx.id!, '❌');
 
             ctx.reply({ image: buff, mimetype : "image/png" });
         } catch (err) {

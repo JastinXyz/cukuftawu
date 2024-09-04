@@ -63,6 +63,7 @@ ${x.description || "none"}
                     "General": "🔎",
                     "Tools": "✂",
                     "Owner": "🤖",
+                    "Downloader": "📥",
                     "Tidak Ada Category": "❓"
                 }
 

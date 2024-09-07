@@ -2,3 +2,4 @@
 /dist
 /state
 .env
+start.sh

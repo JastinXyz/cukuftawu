@@ -18,7 +18,7 @@
     "typescript": "^5.5.4"
   },
   "dependencies": {
-    "@mengkodingan/ckptw": "^4.4.4",
+    "@mengkodingan/ckptw": "^4.4.6",
     "axios": "^1.7.3",
     "better-sqlite3": "^11.8.1",
     "dotenv": "^16.4.5",

@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@mengkodingan/ckptw':
-        specifier: ^4.4.4
-        version: 4.4.4(eslint@8.57.1)(jimp@0.16.1)(link-preview-js@3.0.13)(typescript@5.5.4)
+        specifier: ^4.4.6
+        version: 4.4.6(eslint@8.57.1)(jimp@0.16.1)(link-preview-js@3.0.13)(typescript@5.5.4)
       axios:
         specifier: ^1.7.3
         version: 1.7.3
@@ -284,8 +284,8 @@ packages:
   '@jimp/utils@0.16.13':
     resolution: {integrity: sha512-VyCpkZzFTHXtKgVO35iKN0sYR10psGpV6SkcSeV4oF7eSYlR8Bl6aQLCzVeFjvESF7mxTmIiI3/XrMobVrtxDA==}
 
-  '@mengkodingan/ckptw@4.4.4':
-    resolution: {integrity: sha512-zu6FNhqOub3drpkyhilY12cN+JqVY4tqRebpJMTosaH+LvEsg8oEuzTKo50BZm5FW3WbDQecTjAFZXpAoK8sRw==}
+  '@mengkodingan/ckptw@4.4.6':
+    resolution: {integrity: sha512-PjYS0z2TWTmenOOYxR7tILm1YrqnKxl4+J8jfrA6igEmOzwq5xiCPHTHyfeS488uiGDUZSD030/Bzhx2auj9hg==}
     peerDependencies:
       jimp: ^0.16.1
       link-preview-js: ^3.0.0
@@ -663,15 +663,6 @@ packages:
 
   curve25519-js@0.0.4:
     resolution: {integrity: sha512-axn2UMEnkhyDUPWOwVKBMVIzSQy2ejH2xRGy1wq81dqRwApXfIzfbE3hIX0ZRFBIihf/KDqK158DLwESu4AK1w==}
-
-  debug@4.3.6:
-    resolution: {integrity: sha512-O/09Bd4Z1fBrU4VzkhFqVgpPzaGbw6Sm9FEkBT1A/YBXQFGuuSxa1dN2nxgxS34JmKXqYx8CZAwEVoJFImUXIg==}
-    engines: {node: '>=6.0'}
-    peerDependencies:
-      supports-color: '*'
-    peerDependenciesMeta:
-      supports-color:
-        optional: true
 
   debug@4.4.0:
     resolution: {integrity: sha512-6WTZ/IxCY/T6BALoZHaE4ctp9xm+Z5kY/pzYaCHRFeyVhojxlrm+46y68HA6hr0TcwEssoxNiDEUJQjfPZ/RYA==}
@@ -1126,9 +1117,6 @@ packages:
 
   mpg123-decoder@0.4.12:
     resolution: {integrity: sha512-BjeE7+D7FttqNRFtF3IgSSnG2Hn96ID4JDsCCmxhaPy2R1yuJu2gaabhlS9r12JibaRTT2SYDMXTyjD6xqe0fg==}
-
-  ms@2.1.2:
-    resolution: {integrity: sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w==}
 
   ms@2.1.3:
     resolution: {integrity: sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==}
@@ -1981,7 +1969,7 @@ snapshots:
       '@babel/runtime': 7.26.7
       regenerator-runtime: 0.13.11
 
-  '@mengkodingan/ckptw@4.4.4(eslint@8.57.1)(jimp@0.16.1)(link-preview-js@3.0.13)(typescript@5.5.4)':
+  '@mengkodingan/ckptw@4.4.6(eslint@8.57.1)(jimp@0.16.1)(link-preview-js@3.0.13)(typescript@5.5.4)':
     dependencies:
       '@discordjs/collection': 1.5.3
       '@hapi/boom': 10.0.1
@@ -2424,10 +2412,6 @@ snapshots:
   css-what@6.1.0: {}
 
   curve25519-js@0.0.4: {}
-
-  debug@4.3.6:
-    dependencies:
-      ms: 2.1.2
 
   debug@4.4.0:
     dependencies:
@@ -2901,15 +2885,13 @@ snapshots:
     dependencies:
       '@wasm-audio-decoders/common': 9.0.4
 
-  ms@2.1.2: {}
-
   ms@2.1.3: {}
 
   music-metadata@7.14.0:
     dependencies:
       '@tokenizer/token': 0.3.0
       content-type: 1.0.5
-      debug: 4.3.6
+      debug: 4.4.0
       file-type: 16.5.4
       media-typer: 1.1.0
       strtok3: 6.3.0

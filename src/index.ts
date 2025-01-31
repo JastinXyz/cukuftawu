@@ -2,11 +2,21 @@ import { Events, CommandHandler, Ctx } from "@mengkodingan/ckptw";
 import path from "path";
 import bot from "./client";
 import config from "../config";
-import { initGroups, initSingleGroup } from "./lib/initGroups";
+import { initGroups, addContact, initSingleGroup, addUser } from "./Database/index";
+import chalk from 'chalk';
 
-bot.ev.once(Events.ClientReady, async(m) => {
+bot.ev.once(Events.ClientReady, async () => {
     await initGroups(bot);
-    bot.consolefy?.success("Client Ready At", m.user.id);
+    bot.consolefy?.success("Client Ready");
+});
+
+
+bot.ev.on(Events.MessagesUpsert, async (m, ctx) => {
+    let senderJid = ctx.sender.decodedJid;
+    if (senderJid) {
+        await addUser(bot, senderJid);
+        await addContact(bot, senderJid);
+    }
 });
 
 bot.ev.on(Events.MessagesUpsert, async(m, ctx: Ctx) => {
@@ -40,5 +50,15 @@ bot.ev.on(Events.UserJoin, async(m) => {
 
 const cmd = new CommandHandler(bot, path.resolve('dist', 'src') + '/commands');
 cmd.load(config.commandHandlerLog);
+
+process.on('unhandledRejection', (reason, promise) => {
+    console.error(chalk.red(`Unhandled promise rejection: ${reason}`));
+    process.exit(1);
+});
+
+process.on('uncaughtException', (error) => {
+    console.error(chalk.red(`Uncaught exception: ${error.message}`));
+    process.exit(1);
+});
 
 bot.launch();

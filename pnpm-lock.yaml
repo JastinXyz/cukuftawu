@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@mengkodingan/ckptw':
-        specifier: ^4.4.6
-        version: 4.4.6(eslint@8.57.1)(jimp@0.16.1)(link-preview-js@3.0.13)(typescript@5.5.4)
+        specifier: ^4.4.8
+        version: 4.4.8(eslint@8.57.1)(jimp@0.16.1)(link-preview-js@3.0.13)(typescript@5.5.4)
       axios:
         specifier: ^1.7.3
         version: 1.7.3
@@ -284,8 +284,8 @@ packages:
   '@jimp/utils@0.16.13':
     resolution: {integrity: sha512-VyCpkZzFTHXtKgVO35iKN0sYR10psGpV6SkcSeV4oF7eSYlR8Bl6aQLCzVeFjvESF7mxTmIiI3/XrMobVrtxDA==}
 
-  '@mengkodingan/ckptw@4.4.6':
-    resolution: {integrity: sha512-PjYS0z2TWTmenOOYxR7tILm1YrqnKxl4+J8jfrA6igEmOzwq5xiCPHTHyfeS488uiGDUZSD030/Bzhx2auj9hg==}
+  '@mengkodingan/ckptw@4.4.8':
+    resolution: {integrity: sha512-V0YbFzhXHCPMBAPW9GTBlHpBohBI+S39icPOAXrb3Rz/pkjIylomvhijkkqiEJ9+4QpyZe3odwUgC3jvbFX44A==}
     peerDependencies:
       jimp: ^0.16.1
       link-preview-js: ^3.0.0
@@ -1969,7 +1969,7 @@ snapshots:
       '@babel/runtime': 7.26.7
       regenerator-runtime: 0.13.11
 
-  '@mengkodingan/ckptw@4.4.6(eslint@8.57.1)(jimp@0.16.1)(link-preview-js@3.0.13)(typescript@5.5.4)':
+  '@mengkodingan/ckptw@4.4.8(eslint@8.57.1)(jimp@0.16.1)(link-preview-js@3.0.13)(typescript@5.5.4)':
     dependencies:
       '@discordjs/collection': 1.5.3
       '@hapi/boom': 10.0.1

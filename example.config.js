@@ -26,5 +26,6 @@ module.exports = {
         onlyGroup: "❌ Perintah ini hanya bisa dijalankan di dalam grup.",
         onlyAdmin: "❌ Perintah ini hanya bisa dijalankan oleh admin grup.",
         maxCharacter: "❌ Teks terlalu panjang! Maksimal {max_character} karakter.",
+        banned: "❌ Kamu telah di ban dari bot ini.",
     }
 }

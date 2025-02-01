@@ -3,10 +3,22 @@ import path from "path";
 import bot from "./client";
 import config from "../config";
 import { initGroups, initSingleGroup } from "./lib/initGroups";
+import generateMessage from "./lib/generateMessage";
 
 bot.ev.once(Events.ClientReady, async(m) => {
     await initGroups(bot);
+
+    let hasBanDB = await bot.db.has(`bans`);
+    if(!hasBanDB) await bot.db.set(`bans`, []);
+
     bot.consolefy?.success("Client Ready At", m.user.id);
+});
+
+bot.use(async (ctx: Ctx, next) => {
+    let banlist = await bot.db.get('bans');
+    if(banlist && banlist.includes(ctx.sender.decodedJid?.replace("@s.whatsapp.net", ""))) return ctx.reply(generateMessage('banned', { ctx }));
+
+    await next();
 });
 
 bot.ev.on(Events.MessagesUpsert, async(m, ctx: Ctx) => {

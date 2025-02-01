@@ -15,6 +15,7 @@ export interface Config {
         onlyGroup: string;
         onlyAdmin: string;
         maxCharacter: string;
+        banned: string;
     };
 }
 

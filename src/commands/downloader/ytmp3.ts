@@ -13,13 +13,21 @@ module.exports = {
     code: async(ctx: Ctx) => {
         try {
             if(!ctx.args.length) return ctx.reply(generateMessage('invalidUsage', { ctx, args: module.exports.args.join(" ") }));
-            let url = ctx.args[0];
+            let url = new URL(ctx.args[0]);
 
-            let { data } = await axios('https://ytdl.axeel.my.id/api/download/audio?url=' + url);
-            await ctx.reply({ audio: { url: data.downloads.url } });
+            let body = new URLSearchParams();
+            body.set('url', url.href);
+
+            let { data } = await axios.post('https://www.youtubemp3.ltd/convert', body, {
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                }
+            });
+
+            await ctx.reply({ audio: { url: data.link }, mimetype: 'audio/mp4' });
         } catch (err) {
             ctx.reply(generateMessage('error', { ctx }));
-            console.log("[TIKTOKDL ERR]", err)
+            console.log("[YTMP3 ERR]", err)
         }
     }
 }

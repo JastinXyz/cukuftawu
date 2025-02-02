@@ -8,6 +8,7 @@ module.exports = {
     description: "🤔",
     aliases: ['htg'],
     cooldown: 0,
+    group: true,
     category: "grup",
     code: async(ctx: Ctx) => {        
         try {

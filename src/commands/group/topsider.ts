@@ -8,13 +8,12 @@ module.exports = {
     aliases: ['topseeder', 'sider', 'seeder'],
     description: "Sider harap aktif di grup ini, mohon kerja samanya.",
     cooldown: 1,
+    group: true,
     category: "grup",
     code: async(ctx: Ctx) => {
         if(module.exports.cooldown && makeCooldown(ctx, module.exports.cooldown)) return;
         
         try {
-            if(!ctx.isGroup()) return ctx.reply(generateMessage('onlyGroup', { ctx }));
-
             const groupMembers = await ctx.group().members();
             let isSenderAdmin = groupMembers.filter((x) => x.id === ctx.sender.decodedJid && (x.admin === 'admin' || x.admin === 'superadmin'));
 

@@ -3,7 +3,8 @@ import path from "path";
 import bot from "./client";
 import config from "../config";
 import { initGroups, initSingleGroup } from "./lib/initGroups";
-import generateMessage from "./lib/generateMessage";
+import banMiddleware from "./middlewares/banMiddleware";
+import onlyGroupMiddleware from "./middlewares/onlyGroupMiddleware";
 
 bot.ev.once(Events.ClientReady, async(m) => {
     await initGroups(bot);
@@ -14,12 +15,8 @@ bot.ev.once(Events.ClientReady, async(m) => {
     bot.consolefy?.success("Client Ready At", m.user.id);
 });
 
-bot.use(async (ctx: Ctx, next) => {
-    let banlist = await bot.db.get('bans');
-    if(banlist && banlist.includes(ctx.sender.decodedJid?.replace("@s.whatsapp.net", ""))) return ctx.reply(generateMessage('banned', { ctx }));
-
-    await next();
-});
+bot.use(banMiddleware);
+bot.use(onlyGroupMiddleware);
 
 bot.ev.on(Events.MessagesUpsert, async(m, ctx: Ctx) => {
     let decodedJid = ctx.decodedId!;

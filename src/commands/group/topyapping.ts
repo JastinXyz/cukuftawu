@@ -11,8 +11,6 @@ module.exports = {
     group: true,
     category: "grup",
     code: async(ctx: Ctx) => {
-        if(module.exports.cooldown && makeCooldown(ctx, module.exports.cooldown)) return;
-        
         try {
             const groupMembers = await ctx.group().members();
             let isSenderAdmin = groupMembers.filter((x) => x.id === ctx.sender.decodedJid && (x.admin === 'admin' || x.admin === 'superadmin'));

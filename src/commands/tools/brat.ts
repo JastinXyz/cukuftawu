@@ -8,12 +8,10 @@ module.exports = {
     name: "brat",
     aliases: ['sbrat', 'stikerbrat', 'stickerbrat'],
     description: "Buat sticker brat.",
-    cooldown: 4,
+    cooldown: 20,
     category: "tools",
     args: ["<argument>"],
     code: async(ctx: Ctx) => {
-        if(module.exports.cooldown && makeCooldown(ctx, module.exports.cooldown)) return;
-
         try {
             if(!ctx.args.length) return ctx.reply(generateMessage('invalidUsage', { ctx, args: module.exports.args.join(" ") }));
 

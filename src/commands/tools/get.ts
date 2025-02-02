@@ -11,8 +11,6 @@ module.exports = {
     category: "tools",
     args: ["<argument>"],
     code: async(ctx: any) => {
-        if(module.exports.cooldown && makeCooldown(ctx, module.exports.cooldown)) return;
-
         try {
             if(!ctx.args.length) return ctx.reply(generateMessage('invalidUsage', { ctx, args: module.exports.args.join(" ") }));
 

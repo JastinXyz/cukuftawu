@@ -21,8 +21,6 @@ module.exports = {
     category: "general",
     args: ["<command?>"],
     code: async(ctx: Ctx) => {
-        if(module.exports.cooldown && makeCooldown(ctx, module.exports.cooldown)) return;
-
         try {
             let allCommandsValue = Array.from(ctx._self.cmd?.values() as unknown as ArrayLike<unknown>) as Array<CommandDetail>;
             if(ctx.args.length) {

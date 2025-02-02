@@ -8,8 +8,6 @@ module.exports = {
     cooldown: 5,
     category: "tools",
     code: async(ctx: Ctx) => {
-        if(module.exports.cooldown && makeCooldown(ctx, module.exports.cooldown)) return;
-
         try {
             let quoted = ctx.quoted.viewOnceMessageV2?.message as any;
             let messageType = ctx.getContentType(quoted) as any;

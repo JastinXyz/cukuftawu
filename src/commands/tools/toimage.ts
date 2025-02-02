@@ -9,8 +9,6 @@ module.exports = {
     cooldown: 1,
     category: "tools",
     code: async(ctx: Ctx) => {
-        if(module.exports.cooldown && makeCooldown(ctx, module.exports.cooldown)) return;
-
         try {
             const buff = await ctx.quoted.media.toBuffer();
             if(!buff) return ctx.reply(italic('❌ Reply ke sticker saat menggunakan command ini.'));

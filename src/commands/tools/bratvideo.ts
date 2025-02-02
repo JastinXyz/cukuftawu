@@ -12,8 +12,6 @@ module.exports = {
     category: "tools",
     args: ["<argument>"],
     code: async(ctx: Ctx) => {
-        if(module.exports.cooldown && makeCooldown(ctx, module.exports.cooldown)) return;
-
         try {
             if(!ctx.args.length) return ctx.reply(generateMessage('invalidUsage', { ctx, args: module.exports.args.join(" ") }));
             if(ctx.args.length > 5000) return ctx.reply(generateMessage('maxCharacter', { ctx, args: module.exports.args.join(" "), max_character: 5000 }));

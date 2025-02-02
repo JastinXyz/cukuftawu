@@ -10,8 +10,6 @@ module.exports = {
     cooldown: 1,
     category: "general",
     code: async(ctx: Ctx) => {
-        if(module.exports.cooldown && makeCooldown(ctx, module.exports.cooldown)) return;
-
         try {
             ctx.reply(`${bold('🤖 | Bot Uptime:')} ${mshumanize(Date.now() - ctx._self.readyAt!)}\n${bold('⌛ | Process Uptime:')} ${mshumanize(require("process").uptime() * 1000)}\n${bold('💻 | OS Uptime:')} ${mshumanize(os.uptime() * 1000)}`);
         } catch (err) {

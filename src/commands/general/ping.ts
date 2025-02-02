@@ -8,8 +8,6 @@ module.exports = {
     cooldown: 1,
     category: "general",
     code: async(ctx: Ctx) => {
-        if(module.exports.cooldown && makeCooldown(ctx, module.exports.cooldown)) return;
-
         try {
             ctx.reply({ text: `🥰 ${Date.now() - (ctx.msg.messageTimestamp * 1000)}ms` })
         } catch (err) {

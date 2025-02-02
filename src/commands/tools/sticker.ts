@@ -14,8 +14,6 @@ module.exports = {
     category: "tools",
     args: ["<argument?>"],
     code: async(ctx: Ctx) => {
-        if(module.exports.cooldown && makeCooldown(ctx, module.exports.cooldown)) return;
-        
         try {
             let buffer = await ctx.msg.media.toBuffer() || await ctx.quoted.media.toBuffer();
             if(!buffer) return ctx.reply(italic('❌ Reply ke media atau jadikan sebagai caption.'));

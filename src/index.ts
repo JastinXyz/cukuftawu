@@ -5,6 +5,7 @@ import config from "../config";
 import { initGroups, initSingleGroup } from "./lib/initGroups";
 import banMiddleware from "./middlewares/banMiddleware";
 import onlyGroupMiddleware from "./middlewares/onlyGroupMiddleware";
+import cooldownMiddleware from "./middlewares/cooldownMiddleware";
 
 bot.ev.once(Events.ClientReady, async(m) => {
     await initGroups(bot);
@@ -16,6 +17,7 @@ bot.ev.once(Events.ClientReady, async(m) => {
 });
 
 bot.use(banMiddleware);
+bot.use(cooldownMiddleware)
 bot.use(onlyGroupMiddleware);
 
 bot.ev.on(Events.MessagesUpsert, async(m, ctx: Ctx) => {

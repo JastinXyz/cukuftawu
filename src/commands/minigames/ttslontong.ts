@@ -9,8 +9,6 @@ module.exports = {
     cooldown: 5,
     category: "minigames",
     code: async(ctx: Ctx) => {
-        if(module.exports.cooldown && makeCooldown(ctx, module.exports.cooldown)) return;
-
         try {
             let { data } = await axios('https://api.dotmydotid.my.id/api/ttslontong');
             let selected = data[Math.floor(Math.random() * data.length)];

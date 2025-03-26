@@ -5,6 +5,7 @@ import { upload } from "../../lib/upload";
 import filetype from 'file-type'
 import makeCooldown from "../../lib/makeCooldown";
 import generateMessage from "../../lib/generateMessage";
+import { messageTypeFromBuffer } from "../../lib/util";
 
 module.exports = {
     name: "sticker",
@@ -18,9 +19,9 @@ module.exports = {
             let buffer = await ctx.msg.media.toBuffer() || await ctx.quoted.media.toBuffer();
             if(!buffer) return ctx.reply(italic('❌ Reply ke media atau jadikan sebagai caption.'));
         
-            let bufferType = await filetype.fromBuffer(buffer as any);
+            let bufferType = await messageTypeFromBuffer(buffer);
 
-            if(ctx.args.length && bufferType?.ext !== 'mp4') {
+            if(ctx.args.length && bufferType !== 'video') {
                 let uploaded = await upload(buffer);
                 let cap = ctx.args.join(" ").split("|");
 

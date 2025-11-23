@@ -10,7 +10,7 @@ module.exports = {
     category: "minigames",
     code: async(ctx: Ctx) => {
         try {
-            let { data } = await axios('https://api.dotmydotid.my.id/api/ttslontong');
+            let { data } = await axios('https://apitool.pgl.my.id/api/ttslontong');
             let selected = data[Math.floor(Math.random() * data.length)];
             let answer = selected.answer.toLowerCase();
 

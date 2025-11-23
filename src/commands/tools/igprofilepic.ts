@@ -17,7 +17,7 @@ module.exports = {
         try {
             if(!ctx.args.length) return ctx.reply(generateMessage('invalidUsage', { ctx, args: module.exports.args.join(" ") }));
 
-            let res = await axios.get(`https://api.dotmydotid.my.id/api/ig/profilepic?username=${ctx.args[0]}`, {
+            let res = await axios.get(`https://apitool.pgl.my.id/api/ig/profilepic?username=${ctx.args[0]}`, {
                 responseType: 'arraybuffer'
             });
 

@@ -10,7 +10,7 @@ module.exports = {
     category: "minigames",
     code: async(ctx: Ctx) => {
         try {
-            let { data } = await axios('https://api.dotmydotid.my.id/api/tebakgambar');
+            let { data } = await axios('https://apitool.pgl.my.id/api/tebakgambar');
             let selected = data[Math.floor(Math.random() * data.length)];
 
             let cover = await axios(selected.image, {
